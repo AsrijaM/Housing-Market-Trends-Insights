@@ -1,0 +1,21 @@
+{
+  "name": "housing-market-trends",
+  "version": "1.0.0",
+  "description": "Visualizing Housing Market Trends: An Analysis of Sale Prices and Features using Tableau metrics.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "tableau",
+    "housing-market",
+    "data-visualization",
+    "chartjs"
+  ],
+  "author": "Asrija",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}
