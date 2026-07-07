@@ -34,7 +34,7 @@ Asrija
 > 
 > Could you please update the project's **Demo** and **GitHub** links on the tracking board so my mentor can review and evaluate it?
 >
-> - **GitHub:** https://github.com/saive-asrija/housing-market-tableau
+> - **GitHub:** https://github.com/asrija/housing-market-tableau
 > - **Tableau Public:** https://public.tableau.com/views/HousingMarketTrendsAnalysis/Overview
 >
 > Thanks for your help! - Asrija
