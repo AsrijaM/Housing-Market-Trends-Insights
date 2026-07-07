@@ -1,0 +1,54 @@
+{
+  "project_name": "Visualizing Housing Market Trends: An Analysis of Sale Prices and Features using Tableau",
+  "audit_date": "2026-07-07",
+  "environment": {
+    "tableau_version": "Tableau Desktop 2024.1",
+    "data_engine": "Hyper Extract",
+    "record_count": 1000000
+  },
+  "performance_summary": {
+    "overall_status": "Passed",
+    "average_load_time_ms_before": 10500,
+    "average_load_time_ms_after": 2800,
+    "overall_reduction_pct": 73.33
+  },
+  "metrics": [
+    {
+      "test_case_id": "TC-001",
+      "action": "Initial Workbook Extract Connection & Load",
+      "metric_type": "Data Load",
+      "duration_ms_before": 4200,
+      "duration_ms_after": 1100,
+      "remediation": "Replaced direct live database queries and custom SQL subqueries with pre-materialized, indexed staging views."
+    },
+    {
+      "test_case_id": "TC-002",
+      "action": "Price Distribution Histogram Generation",
+      "metric_type": "Query & Render",
+      "duration_ms_before": 1900,
+      "duration_ms_after": 450,
+      "remediation": "Pre-binned price ranges into a dedicated lookup column, eliminating runtime calculation overhead inside Tableau."
+    },
+    {
+      "test_case_id": "TC-003",
+      "action": "Renovation Decay Curve Plotting",
+      "metric_type": "Calculation & Render",
+      "duration_ms_before": 2800,
+      "duration_ms_after": 300,
+      "remediation": "Shifted 'Years Since Renovation' logic from a Tableau calculated field (which was re-computed for each row at run-time) to a database calculated column."
+    },
+    {
+      "test_case_id": "TC-004",
+      "action": "Dashboard Tab Switching and Filter Interaction",
+      "metric_type": "Layout Render",
+      "duration_ms_before": 1600,
+      "duration_ms_after": 950,
+      "remediation": "Combined multiple redundant dashboard sheets, simplified container layout tree, and enabled 'Apply Button' to filter controls to prevent mid-selection rendering loops."
+    }
+  ],
+  "recommendations": [
+    "Always pre-calculate mathematical divisions and date differences in the database staging view rather than using Tableau calculated fields.",
+    "Utilize Tableau extract (.hyper) files locally to bypass transactional database connection latencies.",
+    "Minimize nested layout containers and dashboard sheets (keep it under 4 sheets per dashboard for ideal rendering speed)."
+  ]
+}
