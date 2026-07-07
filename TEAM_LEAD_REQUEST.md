@@ -17,7 +17,7 @@ I have completed all development, preparation, visualization, and testing phases
 Could you please update the project workspace or Kanban board with my repository and live Tableau Public workbook URLs? This will allow the mentors to review and evaluate the final submission.
 
 Here are the links for my project:
-- **GitHub Repository:** `https://github.com/saive-asrija/housing-market-tableau`
+- **GitHub Repository:** `https://github.com/asrija/housing-market-tableau`
 - **Tableau Public Dashboard:** `https://public.tableau.com/views/HousingMarketTrendsAnalysis/Overview`
 
 Please let me know if any other materials or demonstrations are required.
