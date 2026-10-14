@@ -702,3 +702,48 @@ window.addEventListener('DOMContentLoaded', () => {
     renderStorySlide(0);
     updateRequestTemplate();
 });
+
+/* Fix navigation between dashboard sections */
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const tabViews = document.querySelectorAll(".tab-view");
+
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const targetId = link.getAttribute("data-tab");
+            const targetTab = document.getElementById(targetId);
+
+            if (!targetTab) {
+                console.error("Tab not found:", targetId);
+                return;
+            }
+
+            // Hide all sections
+            tabViews.forEach(function (tab) {
+                tab.classList.remove("active");
+            });
+
+            // Remove active state from all menu links
+            navLinks.forEach(function (navLink) {
+                navLink.classList.remove("active");
+            });
+
+            // Show selected section
+            targetTab.classList.add("active");
+            link.classList.add("active");
+
+            // Update heading
+            const heading = document.getElementById("main-heading");
+            const linkText = link.textContent.trim();
+
+            if (heading) {
+                heading.textContent = linkText;
+            }
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+});
+
