@@ -166,7 +166,7 @@
                         <div class="filter-group" style="display:flex; flex-direction:column; align-items:stretch;">
                             <button class="filter-btn active" data-filter="renovation" data-value="all">All</button>
                             <button class="filter-btn" data-filter="renovation" data-value="Never Renovated">Never Renovated</button>
-                            <button class="filter-btn" data-filter="renovation" data-value="Recently Renovated (<5 yrs)">Recently Renovated (&lt;5 yrs)</button>
+                            <button class="filter-btn" data-filter="renovation" data-value="Recently Renovated (&lt;5 yrs)">Recently Renovated (&lt;5 yrs)</button>
                             <button class="filter-btn" data-filter="renovation" data-value="Moderately Renovated (5-15 yrs)">Moderately Renovated (5-15 yrs)</button>
                         </div>
                     </div>
@@ -257,7 +257,7 @@ SELECT
     END AS years_since_renovation,
     CASE 
         WHEN yr_renovated = 0 THEN 'Never Renovated'
-        WHEN (EXTRACT(YEAR FROM sale_date) - yr_renovated) <= 5 THEN 'Recently Renovated (<5 yrs)'
+        WHEN (EXTRACT(YEAR FROM sale_date) - yr_renovated) <= 5 THEN 'Recently Renovated (&lt;5 yrs)'
         ELSE 'Long-term Renovated (>15 yrs)'
     END AS renovation_category
 FROM staging_house_sales
